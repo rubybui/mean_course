@@ -1,0 +1,20 @@
+
+<!-- Minimum requirement: button and input-->
+<!-- <input type="text"> provides one line-->
+ <!--[value]="newPost" #postInput not 2 way binding, only getting a reference for the setted value -->
+ <!-- two way value combined the setting and the reading of two values-->
+<mat-card>
+    <mat-form-field>
+        <textarea matInput type = "text"
+                  [(ngModel)] = 'enteredTitle'></textarea>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput name="" id="" cols ="30" rows="10" [(ngModel)] = 'enteredContent'></textarea>
+    </mat-form-field>
+    <!-- Logic of the button is added with angular, add a click listener or event binding-->
+    <button mat-raised-button color ='primary' (click)="onAddPost()">Save Post</button>
+</mat-card>
+
+<!-- Toolbar -->
+<!-- Out put hold-->
+

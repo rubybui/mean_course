@@ -1,0 +1,36 @@
+<mat-accordion multi ="true" *ngIf = "posts.length >0">
+
+    <mat-expansion-panel *ngFor='let post of posts'>
+      <mat-expansion-panel-header>
+        {{post.title}}
+      </mat-expansion-panel-header>
+        {{post.content}}
+
+    </mat-expansion-panel>
+</mat-accordion>
+<p class = "info-text mat-caption" *ngIf= "posts.length <=0 ">NO POST ADDED YET!</p>
+<!--
+  therefore you don't know in advance how many elements you're going to need.
+
+We only got one expansion panel,
+
+now we would need three and we don't want to hardcode our content in there anyways. So we need some way
+
+of dynamically looping through that code and creating as many panels as required
+
+and we can do that with the help of so-called structural directive. Angular ships with directives which
+
+as I mentioned before are instructions you place on element and there are some instructions that
+
+only apply to a single element, ngModel was one of them
+
+but there also are instructions which structurally change the rendered html code
+
+and that's the case here.
+
+We can use another special directive, ngFor
+
+and you add with *ngFor, the casing and the star is important
+
+and this is essentially a helper tool that allows you to repeat that element as often as require
+-->
