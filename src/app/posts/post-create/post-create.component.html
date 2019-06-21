@@ -2,17 +2,39 @@
 <!-- Minimum requirement: button and input-->
 <!-- <input type="text"> provides one line-->
  <!--[value]="newPost" #postInput not 2 way binding, only getting a reference for the setted value -->
- <!-- two way value combined the setting and the reading of two values-->
+ <!-- two way value combined the setting and the reading of two values [(ngModel)] = 'enteredContent'-->
 <mat-card>
+  <form (submit)="onAddPost(postForm)" #postForm = "ngForm">
     <mat-form-field>
-        <textarea matInput type = "text"
-                  [(ngModel)] = 'enteredTitle'></textarea>
+      <input
+        matInput
+        type = "text"
+        name = "title"
+        ngModel
+        required
+        placeholder = "Post Title"
+        #title = "ngModel" >
+      <mat-error *ngIf ="title.invalid">Please enter title</mat-error>
     </mat-form-field>
-    <mat-form-field>
-        <textarea matInput name="" id="" cols ="30" rows="10" [(ngModel)] = 'enteredContent'></textarea>
-    </mat-form-field>
-    <!-- Logic of the button is added with angular, add a click listener or event binding-->
-    <button mat-raised-button color ='primary' (click)="onAddPost()">Save Post</button>
+   <mat-form-field>
+      <textarea
+        matInput
+        name="content"
+        id="" cols ="30" rows="10"
+        ngModel
+        required
+        placeholder = "Post Content"
+        #content = "ngModel"></textarea>
+        <mat-error *ngIf ="content.invalid">Please enter content</mat-error>
+
+   </mat-form-field>
+   <!-- Logic of the button is added with angular, add a click listener or event binding-->
+   <button
+    mat-raised-button
+    color ='primary'
+    type ="sumbit">Save Post</button>
+  </form>
+
 </mat-card>
 
 <!-- Toolbar -->
